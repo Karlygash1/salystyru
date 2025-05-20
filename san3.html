@@ -122,6 +122,10 @@
     if (selected === '<') {
       feedback.textContent = '✅ Дұрыс!';
       feedback.style.color = 'green';
+      setTimeout(() => {
+                        // Келесі бетке өту үшін мына жолды өзгертіңіз:
+                        window.location.href = "san4.html";
+                    }, 700);
     } else {
       feedback.textContent = '❌ Қате. Қайта көріңіз.';
       feedback.style.color = 'red';
