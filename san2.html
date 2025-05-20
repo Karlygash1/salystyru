@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Бөлшектерді салыстыру</title>
+  <style>
+    body {
+      background-color: #bfdbfe;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .fraction-table {
+      display: table;
+      margin: 0 auto;
+    }
+
+    .fraction-row {
+      display: table-row;
+    }
+
+    .fraction-cell {
+      display: table-cell;
+      text-align: center;
+      padding: 0 10px;
+      font-size: 20px;
+      vertical-align: middle;
+    }
+
+    .select-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    select {
+  font-size: 20px;
+  padding: 2px 6px;
+  line-height: 1;
+  height: 28px; /* биіктігі тең болу үшін */
+  vertical-align: middle;
+  position: relative;
+  top: -30px; /* ⬆️ дәл осысы сұрақ белгісін көтереді */
+}
+
+    button {
+      margin-top: 20px;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+
+    #feedback {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Бөлшектерді салыстыру</h2>
+  <p>2.Қай таңба дұрыс? Таңда:</p>
+
+  <div class="fraction-table">
+    <div class="fraction-row">
+      <div class="fraction-cell">9</div>
+      <div class="fraction-cell"></div>
+      <div class="fraction-cell">9</div>
+    </div>
+    <div class="fraction-row">
+      <div class="fraction-cell"><hr></div>
+      <div class="fraction-cell"></div>
+      <div class="fraction-cell"><hr></div>
+    </div>
+    <div class="fraction-row">
+      <div class="fraction-cell">18</div>
+      <div class="fraction-cell select-wrapper">
+        <select id="comparison">
+          <option value="">?</option>
+          <option value="<">&lt;</option>
+          <option value="=">=</option>
+          <option value=">">&gt;</option>
+        </select>
+      </div>
+      <div class="fraction-cell">15</div>
+    </div>
+  </div>
+
+  <button onclick="check()">Тексеру</button>
+  <p id="feedback"></p>
+</div>
+
+<script>
+  function check() {
+    const selected = document.getElementById('comparison').value;
+    const feedback = document.getElementById('feedback');
+
+    if (selected === '<') {
+      feedback.textContent = '✅ Дұрыс!';
+      feedback.style.color = 'green';
+    } else {
+      feedback.textContent = '❌ Қате. Қайта көріңіз.';
+      feedback.style.color = 'red';
+    }
+  }
+</script>
+
+</body>
+</html>
